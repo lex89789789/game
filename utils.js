@@ -1,17 +1,16 @@
-
 // Code Per Second def
-var CPS;
+export var CPS;
 
 // all buttons
 
-var buttons = ['prod1','prod2','prod3','prod4','prod5',
+export var buttons = ['prod1','prod2','prod3','prod4','prod5',
   'upbutton','introbutton','creditsbutton','creditsbb','startbutton','upgradebb',
   'up1','up2','up3','up4','up5'
 ];
 
 
 // current ingame save data
-var dat = {
+export var dat = {
   units: 0,
   prestige: 0,
   prod1: 0,
@@ -27,7 +26,7 @@ var dat = {
 };
 
 // initial costs for all production units and upgrades
-var cost = {
+export var cost = {
   c1: 1,
   c2: 1000,
   c3: 10000,
@@ -42,4 +41,4 @@ var cost = {
 
 // Player data
 // this is what gets saved
-var userDat = makeSaveDat();
+export var userDat = makeSaveDat();

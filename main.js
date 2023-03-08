@@ -1,3 +1,5 @@
+import * as utils from utils.js;
+
 /*
 
 IMPORTANT NOTES:
@@ -49,18 +51,18 @@ function checkCookie(cookie) {
 // deal with it
 function makeSaveDat(){
   // add more vars here for more dat.[unit] types
-  var hexunits = dat.units.toString(16);
-  var hexprod1 = dat.prod1.toString(16);
-  var hexprod2 = dat.prod2.toString(16);
-  var hexprod3 = dat.prod3.toString(16);
-  var hexprod4 = dat.prod4.toString(16);
-  var hexprod5 = dat.prod5.toString(16);
-  var hexprestige = dat.prestige.toString(16);
-  var hexup1 = dat.up1.toString(16);
-  var hexup2 = dat.up2.toString(16);
-  var hexup3 = dat.up3.toString(16);
-  var hexup4 = dat.up4.toString(16);
-  var hexup5 = dat.up5.toString(16);
+  var hexunits = utils.dat.units.toString(16);
+  var hexprod1 = utils.dat.prod1.toString(16);
+  var hexprod2 = utils.dat.prod2.toString(16);
+  var hexprod3 = utils.dat.prod3.toString(16);
+  var hexprod4 = utils.dat.prod4.toString(16);
+  var hexprod5 = utils.dat.prod5.toString(16);
+  var hexprestige = utils.dat.prestige.toString(16);
+  var hexup1 = utils.dat.up1.toString(16);
+  var hexup2 = utils.dat.up2.toString(16);
+  var hexup3 = utils.dat.up3.toString(16);
+  var hexup4 = utils.dat.up4.toString(16);
+  var hexup5 = utils.dat.up5.toString(16);
   
   //Combined Serialized Data
   var CSD = '';
@@ -188,6 +190,10 @@ function decodeSaveDat(data){
 // REMAKE SAVE FUNCTION!!!!
 
 
+
+
+// Math functions
+  {
 // turns a number into scientific notation to fit screen better
 // ONLY NUMBERS
 function sciNot(num1){
@@ -199,7 +205,7 @@ function sciNot(num1){
   }
 }
 
-// rounds better because the inbuilt system is bad
+// rounds better because I don't like the inbuilt system
 // ONLY NUMBERS
 function round(int, places){
   var str = parseFloat(int);
@@ -218,6 +224,7 @@ function FPER(num1){
     return parseFloat(num);
   }
 }
+}
 
 
 // Gameplay design elements
@@ -225,14 +232,15 @@ function FPER(num1){
 
 
 //update screen
+
 function US(){
-  CPS = round((dat.prod1) +
-      (dat.prod2*7) +
-      (dat.prod3*43) +
-      (dat.prod4*172) +
-      (dat.prod5*921), 1);
+  CPS = round((utils.dat.prod1) +
+      (utils.dat.prod2*7) +
+      (utils.dat.prod3*43) +
+      (utils.dat.prod4*172) +
+      (utils.dat.prod5*921), 1);
   
-  setProperty('unitDisplay','text',sciNot(dat.units) + ' code');
+  setProperty('unitDisplay','text',sciNot(utils.dat.units) + ' code');
   setProperty('cpslabel','text','Code Per Second: ' + sciNot((CPS))*2);
   
   setProperty('uclabel','text',sciNot(dat.units) + ' code');
