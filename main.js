@@ -1,4 +1,4 @@
-import * as utils from utils.js;
+document.addEventListener('load',LLS());
 
 /*
 
@@ -47,22 +47,69 @@ function checkCookie(cookie) {
 
 }
 
+
+// Code Per Second def
+var CPS;
+
+// all buttons
+
+var buttons = ['prod1','prod2','prod3','prod4','prod5',
+  'upbutton','introbutton','creditsbutton','creditsbb','startbutton','upgradebb',
+  'up1','up2','up3','up4','up5'
+];
+
+
+// current ingame save data
+var dat = {
+  units: 0,
+  prestige: 0,
+  prod1: 0,
+  prod2: 0,
+  prod3: 0,
+  prod4: 0,
+  prod5: 0,
+  up1: 0,
+  up2: 0,
+  up3: 0,
+  up4: 0,
+  up5: 0
+};
+
+// initial costs for all production units and upgrades
+var cost = {
+  c1: 1,
+  c2: 1000,
+  c3: 10000,
+  c4: 900000,
+  c5: 4000000,
+  u1: 1000,
+  u2: 100000,
+  u3: 1000000,
+  u4: 9000000,
+  u5: 40000000,
+};
+
+// Player data
+// this is what gets saved
+var userDat = makeSaveDat();
+
+
 // Makes the save data by turning it into a 10 char hex string
 // deal with it
 function makeSaveDat(){
   // add more vars here for more dat.[unit] types
-  var hexunits = utils.dat.units.toString(16);
-  var hexprod1 = utils.dat.prod1.toString(16);
-  var hexprod2 = utils.dat.prod2.toString(16);
-  var hexprod3 = utils.dat.prod3.toString(16);
-  var hexprod4 = utils.dat.prod4.toString(16);
-  var hexprod5 = utils.dat.prod5.toString(16);
-  var hexprestige = utils.dat.prestige.toString(16);
-  var hexup1 = utils.dat.up1.toString(16);
-  var hexup2 = utils.dat.up2.toString(16);
-  var hexup3 = utils.dat.up3.toString(16);
-  var hexup4 = utils.dat.up4.toString(16);
-  var hexup5 = utils.dat.up5.toString(16);
+  var hexunits = dat.units.toString(16);
+  var hexprod1 = dat.prod1.toString(16);
+  var hexprod2 = dat.prod2.toString(16);
+  var hexprod3 = dat.prod3.toString(16);
+  var hexprod4 = dat.prod4.toString(16);
+  var hexprod5 = dat.prod5.toString(16);
+  var hexprestige = dat.prestige.toString(16);
+  var hexup1 = dat.up1.toString(16);
+  var hexup2 = dat.up2.toString(16);
+  var hexup3 = dat.up3.toString(16);
+  var hexup4 = dat.up4.toString(16);
+  var hexup5 = dat.up5.toString(16);
   
   //Combined Serialized Data
   var CSD = '';
@@ -234,13 +281,13 @@ function FPER(num1){
 //update screen
 
 function US(){
-  CPS = round((utils.dat.prod1) +
-      (utils.dat.prod2*7) +
-      (utils.dat.prod3*43) +
-      (utils.dat.prod4*172) +
-      (utils.dat.prod5*921), 1);
+  CPS = round((dat.prod1) +
+      (dat.prod2*7) +
+      (dat.prod3*43) +
+      (dat.prod4*172) +
+      (dat.prod5*921), 1);
   
-  setProperty('unitDisplay','text',sciNot(utils.dat.units) + ' code');
+  setProperty('unitDisplay','text',sciNot(dat.units) + ' code');
   setProperty('cpslabel','text','Code Per Second: ' + sciNot((CPS))*2);
   
   setProperty('uclabel','text',sciNot(dat.units) + ' code');
