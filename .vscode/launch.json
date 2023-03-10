@@ -7,8 +7,8 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Open page.html",
-            "file": "/Users/ameyers/game/page.html"
+            "name": "Open index.html",
+            "file": "/Users/ameyers/game/index.html"
         }
     ]
 }
